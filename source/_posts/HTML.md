@@ -12,7 +12,7 @@ tag:
 ```html
 <meta charset="UTF-8">
 ```
-定义 `html` 文件为 `utf-8` 编码。
+定义 `html` 文件为 `utf-8` 编码
 
 ```html
 <meta name='viewport'  content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
@@ -28,18 +28,18 @@ tag:
 ```html
 <link href='file_name.ico'  rel='icon' /></link>
 ```
-标签页图标。
+标签页图标
 
 ```html
 <link href='file_name.ico'  rel='icon' /></link>
 ```
-引入外部 `css`。
+引入外部 `css`
 
 ## script
 ```html
 <script src='file_name.js'></script>
 ```
-引入外部 `javascript`。
+引入外部 `javascript`
 
 ```html
 <script src='file_name.js' defer="defer"></script>
