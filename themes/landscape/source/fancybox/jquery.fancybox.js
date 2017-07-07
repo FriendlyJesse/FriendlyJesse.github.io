@@ -13,7 +13,7 @@
 ;(function (window, document, $, undefined) {
 	"use strict";
 
-	var H = $("html"),
+	var H = $("HTML"),
 		W = $(window),
 		D = $(document),
 		F = $.fancybox = function () {
@@ -309,7 +309,7 @@
 					}
 
 					// Split url into two pieces with source url and content selector, e.g,
-					// "/mypage.html #my_id" will load "/mypage.html" and display element having id "my_id"
+					// "/mypage.HTML #my_id" will load "/mypage.HTML" and display element having id "my_id"
 					if (type === 'ajax') {
 						hrefParts = href.split(/\s+/, 2);
 						href      = hrefParts.shift();
@@ -900,7 +900,7 @@
 
 			F.trigger('onReady');
 
-			// Check before try to load; 'inline' and 'html' types need content, others - href
+			// Check before try to load; 'inline' and 'HTML' types need content, others - href
 			if (type === 'inline' || type === 'html') {
 				if (!coming.content || !coming.content.length) {
 					return F._error( 'content' );
@@ -1704,7 +1704,7 @@
 
 		overlay : null,      // current handle
 		fixed   : false,     // indicates if the overlay has position "fixed"
-		el      : $('html'), // element that contains "the lock"
+		el      : $('HTML'), // element that contains "the lock"
 
 		// Public methods
 		create : function(opts) {
