@@ -221,6 +221,44 @@ p:not(.red)
 el 是指被选择器选择的元素 
 {% endnote %}
 
+## 伪类
+```css
+a:link {color: #FF0000}		/* 未访问的链接 */
+a:visited {color: #00FF00}	/* 已访问的链接 */
+a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
+a:active {color: #0000FF}	/* 选定的链接 */
+a:focus {color: red}        /* 聚焦 */
+```
+{% note info %} 
+值得一提的是，`hover` 与 `active` 伪类不仅仅是在 `a` 标签中起效，利用它们能做出很多效果。
+{% endnote %}
+
+## 伪元素
+```css
+div::before
+{
+    content: '';
+}
+```
+在元素前插入一个伪元素
+
+```css
+div::after
+{
+    content: url("img.png");
+}
+```
+在元素后插入一个伪元素
+
+### 伪元素内容
+```css
+content: ""  //插入文字
+content: url("")  //插入图片
+```
+{% note info %} 
+伪元素如果没有 `content` 那么它会消失，伪元素在 CSS3 中由一个点变成两个点用于区分伪元素与伪类的区别。伪元素是一个超级强大的黑科技，利用好它可以做到很多事情，例如：完美清除浮动、文字特效等。
+{% endnote %}
+
 # 字体类型
 ```css
 *
@@ -471,13 +509,324 @@ p
 <img src='/images/CSS/word.png' />
 `word-break:break-all` 所有都会换行了，而 `word-wrap:break-word` 则只有长单词换行。
 
-# 超链接伪类
+# 列表
+
+## 列表符号
 ```css
-a:link {color: #FF0000}		/* 未访问的链接 */
-a:visited {color: #00FF00}	/* 已访问的链接 */
-a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
-a:active {color: #0000FF}	/* 选定的链接 */
+ul
+{
+    list-style-type: none;
+}
+```
+属性：`decimal` 默认 | `lower-alpha` 小写英文字母 | `upper-alpha` 大写英文字母 | `none` 去除列表符号
+
+## 自定义列表符号
+```css
+ul
+{
+    list-style-image: url("img.png");
+}
+```
+
+# 表格
+
+## 边框合并
+```css
+table
+{
+    border-collapse: collapse;
+}
+```
+属性：`separate` 默认 | `collapse` 边框合并
+
+## 表格间距
+```css
+table
+{
+    border-spacing: 10px 5px;
+}
+```
+属性：水平间距 垂直间距
+
+{% note info %} 
+默认情况下每个单元格之间都存在一定的间距，`border-collapse` 与 `border-spacing` 都是对其进行的操作。
+{% endnote %}
+
+## 表格标题位置
+```css
+caption
+{
+    caption-side: bottom;
+}
+```
+属性：`top` 默认 | `bottom` 标题在底部
+
+# 背景
+
+## 背景图片
+```css
+.img
+{
+    background-image: url("img.png");
+}
+```
+
+## 背景图位置
+```css
+.img
+{
+    background-position: 10px 5px;
+}
+```
+属性：`length` x 轴 | `length` y 轴
+关键词：`left` | `top` | `right` | `bottom`
+
+## 背景重复
+```css
+.img
+{
+    background-repeat: no-repeat;
+}
+```
+属性：`repeat` 默认 | `no-repeat` 不平铺 | `repeat-x` x 轴平铺 | `repeat-y` y 轴平铺
+
+## 背景固定
+```css
+.img
+{
+    background-attachment: fixed;
+}
+```
+属性：`scroll` 默认 | `fixed` 固定
+
+## 背景大小
+```css
+.img
+{
+    background-size: 100% 100%;
+}
+```
+属性：`length` 水平 | `length` 垂直
+关键词：`cover` 铺满 | `contain` 缩放至紧贴一边的容器
+
+## 背景相对位置
+```css
+.img
+{
+    background-origin: border-box;
+}
+```
+属性：`padding-box` 相对于内边距（默认）| `border-box` 相对于边框 | `content-box` 相对于内容区域
+
+## 背景绘制区域
+```css
+.img
+{
+    background-clip: border-box;
+}
+```
+属性：`padding-box` 裁剪到内边距 | `border-box` 裁剪到边框 | `content-box` 裁剪到内容区域 | `text` 裁剪到文字(webkit 浏览器下实现)
+
+## 多重背景
+```css
+.img
+{
+    background:url("img1.png") no-repeat, url("img2.png") no-repeat 
+}
+```
+
+## 背景颜色
+```css
+.img
+{
+    background-color: red;
+}
+```
+
+## 背景渐变
+
+### 线性渐变
+```css
+.img
+{
+    background: linear-gradient(to right, red, blue);
+}
+```
+属性：`linear-gradient(deg, start_color [ width], end_color [ width] [, start_color [ width], end_color [ width]])`
+`deg`：`deg` 角度，如：`30deg` | `to position` 关键词，如：`top top left`
+`start_color`：开始颜色
+`end_color`：结束颜色
+`width`: 宽度
+
+```css
+.img
+{
+    background: linear-gradient(to right, red, blue), linear-gradient(to right, red, blue);
+}
+```
+线性渐变可叠加
+
+```css
+.img
+{
+    background: linear-gradient(to right, red 0, blue 10%, blue 100%);
+}
+```
+线性渐变可指定范围
+
+### 平铺线性渐变
+```css
+.img
+{
+    background: repeating-linear-gradient(to right, red 0, blue 10%, blue 20%);
+}
+```
+
+### 径向渐变
+```css
+.img
+{
+    background: radial-gradient(red, green, blue);
+}
+```
+属性：`radial-gradient([position [, shape size],] start_color, stop_color)`
+`position`：关键词，只有 webkit 浏览器支持
+`shape`：`circle` 圆型 | `ellipse` 椭圆
+`size`：`length` 大小 | `closest-side` 圆心到最近的边 | `closest-corner` 圆心到最近的角 | `farthest-side` 圆心到最远的边 | `farthest-corner` 圆心到最远的角 | `contain` 包含 | `cover` 缩放至紧贴一边的容器
+
+### 平铺径向渐变
+```css
+.img
+{
+    background: repeating-radial-gradient(red, yellow 10%, green 15%);
+}
+```
+
+## 简写
+backgruond: color image repeat attachment position / size
+
+# 盒模型
+<img src="/images/CSS/box.png" />
+
+## 宽 & 高
+```css
+div
+{
+    width: 100px;  /*宽度*/
+    max-width: 100px;  /*最大宽度*/
+    min-width: 100px;  /*最小宽度*/
+    height: 100px;  /*高度*/
+    max-height: 100px;  /*最大高度*/
+    min-height: 100px;  /*最小高度*/
+}
 ```
 {% note info %} 
-值得一提的是，`hover` 与 `active` 伪类不仅仅是在 `a` 标签中起效，利用它们能做出很多效果。
+需要注意的是行内元素是没有宽高的，但是有一些特例除外：`img` `input` 等。
 {% endnote %}
+
+## 内边距
+```css
+p
+{
+    padding-top: 10px;  /*上边距*/
+    padding-right: 10px;  /*右边距*/
+    padding-bottom: 10px; /*下边距*/
+    padding-left: 10px; /*左边距*/
+}
+简写：
+p
+{
+    padding: 10px;  /*四边皆为 10px*/
+    padding: 10px 9px 7px;  /*上、左 & 右、下*/
+    padding: 10px 9px;  /*上 & 下、左 & 右*/
+    padding: 10px 9px 8px 7px;  /*上、右、下、左*/
+}
+```
+
+## 外边距
+```css
+p
+{
+    margin-top: 10px;  /*上边距*/
+    margin-right: 10px;  /*右边距*/
+    margin-bottom: 10px; /*下边距*/
+    margin-left: 10px; /*左边距*/
+}
+简写：
+p
+{
+    margin: 10px;  /*四边皆为 10px*/
+    margin: 10px 9px 7px;  /*上、左 & 右、下*/
+    margin: 10px 9px;  /*上 & 下、左 & 右*/
+    margin: 10px 9px 8px 7px;  /*上、右、下、左*/
+}
+```
+{% note info %} 
+`margin: 0 auto` 能够使带有宽度的块元素水平居中
+{% endnote %}
+
+## 边框
+```css
+p
+{
+    border-top: 1px solid red;  /*上边框*/
+    border-bottom: 1px solid red;  /*下边框*/
+    border-left: 1px solid red;  /*左边框*/
+    border-right: 1px solid red;  /*右边框*/
+    border-width: 1px;  /*边框宽度*/
+    border-color: red;  /*边框颜色*/
+    border-style: solid;  /*边框样式*/
+}
+简写：
+p
+{
+    border: 1px solid red;
+}
+```
+属性：`width` `style` `color`
+`style`：`solid` 实线 | `dashed` 虚线 | `dotted` 点线 | `double` 双线
+
+### 边框圆角
+```css
+p
+{
+    border-radius: 10px;  /*四边皆为 10px*/
+    border-radius: 10px 9px;  /*左上 & 右下 、 右上 & 左下*/
+    border-radius: 10px 9px 8px;  /*左上、右上 & 左下、右下*/
+    border-radius: 10px 9px 8px 7px;  /*左上、右上、右下、左下*/
+    border-radius: 10px / 9px;  /*x 轴 / y 轴*/
+}
+```
+
+### 边框背景
+```css
+p
+{
+    border-image: url("img.png") 10 repeat; /*四边皆为 10*/
+    border-image: url("img.png") 10 9 repeat; /*上 & 下、 左 & 右*/
+    border-image: url("img.png") 10 9 8 repeat; /*上、左 & 右、下&*/
+    border-image: url("img.png") 10 9 8 7 repeat; /*上、右、下、左*/
+}
+```
+属性：`url` `position` `repeat`
+`url`：`url("")`
+`position`：`top` `right` `bottom` `left`
+`repeat`：`repeat` 重复 | `round` 平铺 | `stretch` 拉伸
+
+## 阴影
+```css
+p
+{
+    box-shadow: 10px 10px 5px 1px red;
+    box-shadow: 10px 10px 5px 1px red, 10px 10px 5px 1px yellow; /*阴影叠加*/
+}
+```
+属性：`[inset] x y [blur] [spread] [color] [, [inset] x y [blur] [spread] [color] ...]`
+`inset`：`inset` 内阴影
+`x`：x 轴
+`y`：y 轴
+`blur`：模糊半径
+`spread`：阴影范围
+`color`：阴影颜色
+
+# 定位
