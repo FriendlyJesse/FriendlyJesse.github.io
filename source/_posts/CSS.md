@@ -259,55 +259,6 @@ content: url("")  //插入图片
 伪元素如果没有 `content` 那么它会消失，伪元素在 CSS3 中由一个点变成两个点用于区分伪元素与伪类的区别。伪元素是一个超级强大的黑科技，利用好它可以做到很多事情，例如：完美清除浮动、文字特效等。
 {% endnote %}
 
-# 字体类型
-```css
-*
-{
-    font-family: Microsoft Yahei, Arial, 宋体;
-}
-```
-定义字体类型。如果计算机没有这项字体，那么从左至右选择计算机拥有的字体。这样一来就存在着局限性，为此 CSS3 引入了自定义字体：
-
-```css
-@font-face
-{
-	font-family: "自定义名";
-	src: url("路径") format("字体格式");
-	font-weight: normal;
-	font-style: normal;
-}
-```
-引入需要的字体，可以定义字体名、font-weight、font-style。
-
-## 自定义字体支持情况
-**一、TureTpe(.ttf)格式：**
-.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，因此他不为网站优化,支持这种字体的浏览器有【IE9+,Firefox3.5+,Chrome4+,Safari3+,Opera10+,iOS Mobile Safari4.2+】
-
-**二、OpenType(.otf)格式：**
-.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，所以也提供了更多的功能,支持这种字体的浏览器有【Firefox3.5+,Chrome4.0+,Safari3.1+,Opera10.0+,iOS Mobile Safari4.2+】；
-
-**三、Web Open Font Format(.woff)格式：**
-.woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离,支持这种字体的浏览器有【IE9+,Firefox3.5+,Chrome6+,Safari3.6+,Opera11.1+】；
-
-**四、Embedded Open Type(.eot)格式：**
-.eot字体是IE专用字体，可以从TrueType创建此格式字体,支持这种字体的浏览器有【IE4+】；
-
-**五、SVG(.svg)格式：**
-.svg字体是基于SVG字体渲染的一种格式,支持这种字体的浏览器有【Chrome4+,Safari3.1+,Opera10.0+,iOS Mobile Safari3.2+】。
-
-```css
-@font-face 
-{
-	font-family: 'YourWebFontName';
-	src: url('YourWebFontName.eot'); /* IE9 Compat Modes */
-	src: url('YourWebFontName.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('YourWebFontName.woff') format('woff'), /* Modern Browsers */
-         url('YourWebFontName.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('YourWebFontName.svg#YourWebFontName') format('svg'); /* Legacy iOS */
-}
-```
-多浏览器支持
-
 # 字体样式
 ```css
 p
@@ -348,6 +299,55 @@ p
 }
 ```
 字体倾斜，属性：`normal` 默认 | `italic` 斜体 | `oblique` 倾斜 
+
+## 字体类型
+```css
+*
+{
+    font-family: Microsoft Yahei, Arial, 宋体;
+}
+```
+定义字体类型。如果计算机没有这项字体，那么从左至右选择计算机拥有的字体。这样一来就存在着局限性，为此 CSS3 引入了自定义字体：
+
+```css
+@font-face
+{
+	font-family: "自定义名";
+	src: url("路径") format("字体格式");
+	font-weight: normal;
+	font-style: normal;
+}
+```
+引入需要的字体，可以定义字体名、font-weight、font-style。
+
+### 自定义字体支持情况
+**一、TureTpe(.ttf)格式：**
+.ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，因此他不为网站优化,支持这种字体的浏览器有【IE9+,Firefox3.5+,Chrome4+,Safari3+,Opera10+,iOS Mobile Safari4.2+】
+
+**二、OpenType(.otf)格式：**
+.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，所以也提供了更多的功能,支持这种字体的浏览器有【Firefox3.5+,Chrome4.0+,Safari3.1+,Opera10.0+,iOS Mobile Safari4.2+】；
+
+**三、Web Open Font Format(.woff)格式：**
+.woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离,支持这种字体的浏览器有【IE9+,Firefox3.5+,Chrome6+,Safari3.6+,Opera11.1+】；
+
+**四、Embedded Open Type(.eot)格式：**
+.eot字体是IE专用字体，可以从TrueType创建此格式字体,支持这种字体的浏览器有【IE4+】；
+
+**五、SVG(.svg)格式：**
+.svg字体是基于SVG字体渲染的一种格式,支持这种字体的浏览器有【Chrome4+,Safari3.1+,Opera10.0+,iOS Mobile Safari3.2+】。
+
+```css
+@font-face 
+{
+	font-family: 'YourWebFontName';
+	src: url('YourWebFontName.eot'); /* IE9 Compat Modes */
+	src: url('YourWebFontName.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('YourWebFontName.woff') format('woff'), /* Modern Browsers */
+         url('YourWebFontName.ttf')  format('truetype'), /* Safari, Android, iOS */
+         url('YourWebFontName.svg#YourWebFontName') format('svg'); /* Legacy iOS */
+}
+```
+多浏览器支持
 
 ## 字体样式简写
 ```css
