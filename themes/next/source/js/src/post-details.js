@@ -81,7 +81,7 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-  var html = $('HTML');
+  var html = $('html');
   var TAB_ANIMATE_DURATION = 200;
   var hasVelocity = $.isFunction(html.velocity);
 
@@ -128,7 +128,7 @@ $(document).ready(function () {
         offset: offset  + 'px',
         mobileHA: false
       }) :
-      $('HTML, body').stop().animate({
+      $('html, body').stop().animate({
         scrollTop: offset
       }, 500);
   });
