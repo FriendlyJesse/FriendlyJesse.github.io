@@ -318,9 +318,9 @@ disqus:
 
 # changyan
 changyan:
-  enable: false
-  appid:
-  appkey:
+  enable: true
+  appid: cyt6ABlff
+  appkey: 06e751c11bfd71317d347b5a9cc2a762
 
 # Support for youyan comments system.
 # You can get your uid from http://www.uyan.cc
@@ -328,7 +328,7 @@ changyan:
 
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC8yOTQxMC81OTc4
+#livere_uid: MTAyMC8yOTQxMC81OTc4
 
 # Baidu Share
 # Available value:
