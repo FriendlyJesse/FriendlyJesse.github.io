@@ -210,15 +210,23 @@ p:not(.red)
 ## 元素状态选择器
 | 选择器         | 说明           |
 | ------------- | ------------- |
-| 元素:focus  | 选取获得焦点时调用的样式，主要用在text和textarea上 |
-| 元素:checked  | 选取选中时 |
-| 元素:selection  | 选取选中时的样式 |
-| 元素:read-write  | 选取可读写 |
-| 元素::before  | 选取前伪元素 |
-| 元素::after  | 选取后伪元素 |
+| el:focus  | 选取获得焦点时调用的样式，主要用在text和textarea上 |
+| el:checked  | 选取选中时 |
+| ::selection  | 选取选中时的样式 |
+| :read-write  | 选取可读写 |
+| el::before  | 选取前伪元素 |
+| el::after  | 选取后伪元素 |
+
+```css
+::selection
+{
+    background: red;
+}
+```
+常用的是选取时样式。此例选中文字时，文本元素背景会变成红色
 
 {% note info %} 
-el 是指被选择器选择的元素 
+el 是指被选择器选择的元素
 {% endnote %}
 
 ## 伪类
@@ -391,6 +399,23 @@ p
 }
 ```
 属性：`number` 数字 | `length` 固定 | `%` 百分比
+
+{% note info %} 
+行高主要是指两条基线之间的距离
+{% endnote %}
+
+## 垂直对齐
+```css
+img
+{
+    vertical-align: middle;
+}
+```
+属性：`length` 数值 | `%` 使用 `line-height` 属性的百分比值来排列此元素，允许使用负值 | `baseline` 放置于父元素的基线上 | `sub` 对齐文本的下标 | `super` 对齐文本的上标 | `top` 把元素的顶端与行中最高元素的顶端对齐 | `text-top` 把元素的顶端与父元素字体的顶端对齐 | `middle` 把此元素放置在父元素的中部 | `bottom` 把元素的顶端与行中最低的元素的顶端对齐 | `text-bottom	` 	把元素的底端与父元素字体的底端对齐
+
+{% note info %} 
+定义行内元素的基线相对于该元素所在行的基线的垂直对齐。本属性与 `line-height` 的有着密切的联系。
+{% endnote %}
 
 ## 文本修饰
 ```css
@@ -724,6 +749,19 @@ div
 需要注意的是行内元素是没有宽高的，但是有一些特例除外：`img` `input` 等。
 {% endnote %}
 
+## 溢出处理
+```css
+div
+{
+    overflow: hidden;
+}
+```
+属性：`visible` 默认 | `hidden` 溢出隐藏 | `scroll` 显示滚动条 | `auto` 自适应是否出现滚动条
+
+{% note info %} 
+使用 `overflow` 清除浮动触发了 `block formatting context` ，所以他的边框不会和浮动的 `box` 重叠，缺点在于会隐藏或者有滚动条。
+{% endnote %}
+
 ## 内边距
 ```css
 p
@@ -830,3 +868,311 @@ p
 `color`：阴影颜色
 
 # 定位
+```css
+.box
+{
+    position: absolute;
+}
+```
+属性：`static` 默认 | `relative` 相对定位 | `absolute` 绝对定位 | `fixed` 固定定位
+
+{% note info %} 
+定位这个属性比较抽象，总的来说：
+`relative`：相对于之前的位置，并且不脱离文档流。
+`absolute`：如果父级元素有 `position` 属性，那么相对于父级的位置，否则相对于文档的位置。
+`fixed`：相对于文档的位置
+需要注意的是，在使用 `position` 属性之后它们的 `z` 轴将会提高一级覆盖在普通元素之上
+{% endnote %}
+
+```css
+.box
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .5);
+}
+```
+这些位置属性都是 `position` 的附属属性，用于位置的设定。此例利用它们贴边的特性制作了一个自适应遮罩层。
+
+## 优先级
+```css
+.box
+{
+    z-index: 999;
+}
+```
+{% note info %} 
+这个属性一般用于被施加了 `position` 的元素，设置 `z` 轴的优先级。
+{% endnote %}
+
+## 裁剪
+```css
+img
+{
+    position:absolute;
+    clip: rect(0, 60px, 200px, 0);
+}
+```
+属性：`auto` 默认 | `rect` 裁剪矩形
+`rect`：`rect(top, right, bottom, left)`
+{% note info %} 
+裁剪超出父元素的地方（这个属性我还没用到过一次，一般没谁会把超出的地方裁剪让人看不完全的，此外 `overflow` 完全能够替代它）
+{% endnote %}
+
+## 浮动
+```css
+.box
+{
+    float: left;
+}
+```
+属性：`left` | `right` | `none`
+
+{% note info %} 
+浮动这个属性本意是为了使图片产生文字环绕效果的，但是经历开发者前辈们的开发将其大量运用于布局，w3c 也就顺水推舟将其放入定位之中了。
+值得注意的是，浮动也会脱离文档流，同样会遮盖住普通元素。
+{% endnote %}
+
+### 清除浮动
+```css
+.box
+{
+    clear: both;
+}
+```
+属性：`left` | `right` | `both`
+
+除了这个清除浮动的方法之外，`overflow` 同样能够清除浮动。但是他们都有着自己的局限，使用下面的方法完美的清除浮动：
+
+```css
+.cf:before, .cf:after 
+{
+    content:"";
+    display:table;
+}
+.cf:after 
+{
+    clear:both;
+}
+.cf 
+{
+    zoom:1;
+}
+```
+
+# 透明度
+```css
+.box
+{
+    opacity: .2;
+}
+```
+0 ~ 1 定义元素的透明度
+
+```css
+.box
+{
+    background: rgba(255, 255, 255, .2);
+    color: rgba(255, 255, 255, .2);
+}
+```
+在 css3 中添加了 `rgba` 的颜色属性同样能够定义透明度
+
+# 鼠标样式
+```css
+img
+{
+    cursor: pointer;
+}
+```
+属性：`default` 默认 | `pointer` 手型
+
+## 自定义鼠标样式
+```css
+img
+{
+    cursor: url("img.png"), pointer;
+}
+```
+属性：`url` | `type` 类型
+
+{% note info %} 
+鼠标类型有很多，常用的也就手型，也就不一一列出了。一般要特殊形状都是采用自定义手势。
+{% endnote %}
+
+# 变换
+
+## 2D 变换
+```css
+.center
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+```
+此例利用 `translate` 的特性实现水平垂直居中
+
+| 方法         | 属性           | 说明           |
+| ----------- | ------------- | ------------- |
+| 位移 | 1. translateX(x)<br />2. translateY(y)<br />3. translate(x, y) | 1. x 轴移动<br />2. y 轴移动<br />3. x 轴与 y 轴移动 |
+| 缩放 | 1. scaleX(x)<br />2. scaleY(y)<br />3. scale(x, y) | 1. x 轴缩放<br />2. y 轴缩放<br />3. x 轴与 y 轴缩放 |
+| 旋转 | rotate(deg) | 根据角度进行旋转 |
+| 倾斜 | 1. skewX(x)<br />2. skewY(y)<br />3. skew(x, y) | 1. x 轴倾斜<br />2. y 轴倾斜<br />3. x 轴与 y 轴倾斜 |
+
+
+{% note info %} 
+需要注意的是：
+* 位移的百分比相对的是自身的宽高
+* 缩放是没有单位的
+* 倾斜使用时文字会同时倾斜，可采用相反的角度再次倾斜解决。
+{% endnote %}
+
+### 矩阵
+```css
+transform: matrix(a, b, c, d, e, f)  //标准下，默认属性是(1 , 0, 0, 1, 0, 0)
+
+filter: progid:DXImageTransform.Microsoft.Matrix(M11 = a, M12 = c, M21 = b, M22 = d, SizingMethod='auto expand')  //ie下，默认属性是( 1 , 0 , 0 , 1 )
+
+模拟transklate：
+x = e, y = f
+transform: matrix( 1 , 0 , 0 , 1 , x , y )  //x轴与y轴位移
+
+模拟scale：
+x = a, y = d
+transform: matrix( x , 0 , 0 , 1 , 0 , 0 )  //x轴缩放
+
+transform: matrix( 1 , 0 , 0 , y , 0 , 0 )  //y轴缩放
+
+ie：
+x = a, y = d
+filter: progid:DXImageTransform.Microsoft.Matrix( M11 = x , M12 = 0 , M21 = 0 , M22 = 1 , SizingMethod='auto expand' )  //x轴缩放
+
+filter: progid:DXImageTransform.Microsoft.Matrix( M11 = 1 , M12 = 0 , M21 = 0 , M22 = y , SizingMethod='auto expand' )  //y轴缩放
+
+模拟skew：
+x = c, y = b
+
+公式：
+Math.tan(deg/180*Math.PI)  //角度求正切，正切是对边的比值，x与y都是求出的正切值
+
+transform:matrix( 1, 0, x, 1, 0, 0 )  //x轴斜切
+
+transform:matrix( 1, y, 0, 1, 0, 0 )  //y轴斜切
+
+ie:
+x = b, y = c
+progid:DXImageTransform.Microsoft.Matrix( M11 = 1, M12 = x, M21 = 0, M22 = 1, SizingMethod='auto expand' )  //x轴斜切
+
+progid:DXImageTransform.Microsoft.Matrix( M11 = 1, M12 = 0, M21 = y, M22 = 1, SizingMethod='auto expand' )  //y轴斜切
+
+注：如果与缩放一起进行时，乘以缩放的x与y斜切角度才不会变，transform所有的变换效果都是通过矩阵来实现的，一些ie下的滤镜计算可以使用http://www.useragentman.com/IETransformsTranslator/ 下的工具辅助
+
+模拟rotate：
+公式：
+a = Math.cos(deg/180*Math.PI)
+b = Math.sin(deg/180*Math.PI)
+c = -Math.sin(deg/180*Math.PI)
+d = Math.cos(deg/180*Math.PI)
+
+transform:matrix( a , b , c , d , 0 , 0 )  
+
+ie：
+filter:progid:DXImageTransform.Microsoft.Matrix( M11 = a, M12 = c, M21 = b, M22 = d, SizingMethod='auto expand' )  //ie下的原点不是在中心，所以需要改变left值与top值来实现旋转
+```
+{% note info %} 
+其实以上表格中的位移、缩放、旋转、倾斜不过是 `matrix` 的语法糖而已，在此例中我使用 `matrix` 展现了各个属性。
+{% endnote %}
+
+### 基点
+```css
+.box
+{
+    tranform-origin: center center;
+}
+```
+
+| 关键词         | `%`           | 说明           |
+| ----------- | ------------- | ------------- |
+| top left | 0 0 | 左上 |
+| top center | 50% 0 | 靠上居中 |
+| top right | 100% 0 | 右上 |
+| left center | 0 50% | 靠左居中 |
+| center center | 50% 50% | 正中 |
+| right center | 100% 50% | 靠右居中 |
+| bottom left | 0 100% | 左下 |
+| bottom right | 100% 100% | 右下 |
+
+{% note info %} 
+变换的基点默认是中心点，使用 `tranform-origin` 能够改变基点。设置属性不但能够使用以上属性还能使用 `px` 等单位。当然属性还不止这些，后面会在 3D 中提到。
+{% endnote %}
+
+## 3D 变换
+
+### 建立 3D 空间
+```css
+.box
+{
+    transform-style: preserve-3d;
+}
+```
+
+### 景深
+```css
+.box
+{
+    perspective: 100px;
+}
+```
+只有建立了 3D 空间的元素才拥有景深
+
+### 景深基点
+```css
+div
+{
+    perspective-origin: center center;
+}
+```
+| 关键词         | `%`           | 说明           |
+| ----------- | ------------- | ------------- |
+| top left | 0 0 | 左上 |
+| top center | 50% 0 | 靠上居中 |
+| top right | 100% 0 | 右上 |
+| left center | 0 50% | 靠左居中 |
+| center center | 50% 50% | 正中 |
+| right center | 100% 50% | 靠右居中 |
+| bottom left | 0 100% | 左下 |
+| bottom right | 100% 100% | 右下 |
+
+{% note info %}
+景深这个词一般用于摄像领域不太好理解，我个人理解为视角。
+{% endnote %}
+
+### 3D 变换的方法
+| 方法         | 属性           | 说明           |
+| ----------- | ------------- | ------------- |
+| 3D 旋转 | 1. rotateX(x)<br />2. rotateY(y)<br />3. rotate3d(x, y, z, a) | 1. x 轴的 3D 旋转<br />2. y 轴的 3D 旋转<br />3. x 轴与y 轴的 3D 旋转，a 表示旋转角度。正的角度值表示顺时针旋转，负值表示逆时针旋转。 |
+| 3D 位移 | 1. translateZ(z)<br />2. translate3d(x, y, z) | 1. z 轴的位移<br />2. 带上 z 轴的 3D 位移 |
+| 3D 缩放 | 1. scaleZ(z)<br />2. scale3d(x, y, z) | 1. z 轴的缩放<br />2. 带上 z 轴的 3D 缩放 |
+
+### 隐藏不面向视口的元素
+```css
+div
+{
+    backface-visibility: hidden;
+}
+```
+属性：`visible` 默认 | `hidden` 隐藏
+
+### 3D 基点
+```css
+div
+{
+    transform-origin: left center 10px;
+}
+```
+与 2D 相比增加了一个 z 轴（这里一般可以理解为厚度）
