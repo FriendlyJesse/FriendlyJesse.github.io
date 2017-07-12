@@ -357,10 +357,24 @@ p
 ```
 多浏览器支持
 
-## 字体样式简写
-```css
+## 简写
 font: style variant weight size/height family
+
+## rem
+```css
+:root
+{
+    font-size: 62.5%;
+}
+h1
+{
+    font-size: 3rem;
+}
 ```
+{% note info %} 
+css 的单位很多，但是大体可分为：具体单位、相对单位，其中 `px`、`em` 与 `%` 是用得比较多的属性了，但是都有着各式的局限。css3 推出了字体相对单位 `rem`
+与 `em` 不同点在于：`em` 相对的是父级而 `rem` 相对的是根元素。如今对 `rem` 的利用不单单是字体响应，还有着许多的开发者利用其响应的特点开发的 `rem` 布局。（不过我不喜欢使用，还是 flex 好用，希望没人怼我。<(￣3￣)>）
+{% endnote %}
 
 # 文本样式
 
@@ -749,6 +763,21 @@ div
 需要注意的是行内元素是没有宽高的，但是有一些特例除外：`img` `input` 等。
 {% endnote %}
 
+### vh & vm
+```css
+.box
+{
+    width: 100vw;
+    height: 100vh;
+}
+```
+{% note info %} 
+css3 中利用视窗的宽高对其进行划分：
+100vw = 100%
+100vh = 100%
+利用好它们很有用，比如整屏切换。
+{% endnote %}
+
 ## 溢出处理
 ```css
 div
@@ -866,6 +895,47 @@ p
 `blur`：模糊半径
 `spread`：阴影范围
 `color`：阴影颜色
+
+## 盒模型转换
+```css
+.box
+{
+    display: none;
+}
+```
+属性：`none` 移除文档流 | `inline` 行内 | `block` 块 | `inline-block` 行内块
+{% note info %}
+基础的模型就是以上几个，当然还有更多的更加强大的盒子模型请看后续章节。
+{% endnote %}
+
+## 自定义盒子
+```css
+.box
+{
+    width: 100px;
+    height: 100px;
+    background: red;
+    resize: both;
+    overflow: auto;
+}
+```
+使用户自由拉升宽高、类似 `textarea` 标签的效果。
+{% note info %} 
+此属性必须配合 `overflow: auto` 使用否则不会产生效果。
+{% endnote %}
+
+## 怪异盒模型
+```css
+.box
+{
+    box-sizing: border-box;
+}
+```
+属性：`content-box` 默认 | `border-box` 怪异模式
+此方法开启怪异模式，怪异模式中元素的宽度包含内边距和边框
+{% note info %} 
+怪异盒模型是 ie 采用自身的盒模型机制产生的。由于历史原因，ie 标准曾与 w3c 标准背道而驰产生了两套标准，即：标准模式与怪异模式。事实证明 ie 的这套模式比标准模式清晰好用而加入了 css3 中。
+{% endnote %}
 
 # 定位
 ```css
@@ -1001,6 +1071,31 @@ img
 
 {% note info %} 
 鼠标类型有很多，常用的也就手型，也就不一一列出了。一般要特殊形状都是采用自定义手势。
+{% endnote %}
+
+# 元素可见性
+```css
+.box
+{
+    visibility: hidden;
+}
+```
+属性：`visible` 默认 | `hidden` 不可见 | `collapse` 当在表格元素中使用时，此值可删除一行或一列，但是它不会影响表格的布局。被行或列占据的空间会留给其他内容使用。如果此值被用在其他的元素上，会呈现为 "hidden"。
+{% note info %}
+此元素与 `display: none` 的区别在于：
+* 它是将元素的透明度变为0，而 `display: none` 则是直接将元素移除文档流。
+* 此属性在设置 `transition` 后任何变化都有过渡，而 `display: none` 则没有任何效果。（这是一个小技巧，从中最大的体现了与 `display: none` 的区别）
+{% endnote %}
+
+# 计算属性
+```css
+.box
+{
+    width: calc(100% - 10px);
+}
+```
+{% note info %} 
+从此例应该就能看出 `calc` 的强大之处了，但是其在安卓中的兼容不佳，目前不建议在移动端之中使用。
 {% endnote %}
 
 # 变换
@@ -1216,7 +1311,7 @@ div
     transition-timing-function: cubic-bezier(0.25, 0.1, 0.46, 0.22);
 }
 ```
-贝塞尔曲线，自定义速度
+贝塞尔曲线，自定义曲率
 
 ## 过渡的延迟
 ```css
@@ -1258,3 +1353,153 @@ transition结束事件，每改变一条样式会触发一次，由于会重复�
 transition: property duration delay timing-function
 
 # 动画
+
+## 动画的定义
+```css
+@keyframes am
+{
+    from
+    {
+            transform: translateX(0);
+    }
+    to
+    {
+        transform: translateX(10px);
+    }
+}
+```
+{% note info %}
+技巧：
+* 使用 `@keyframes` 规则时，如果仅仅只有 0% 和 100% 这两个百分比的话，这时 0% 和 100% 还可以使用关键词 `from` 和 `to` 来代表，其中 0% 对应的是 `from`，100%对应的是 `to`
+* 设置 0% 与 100% 为空，50% 设置属性可以形成无迟滞的效果。
+{% endnote %}
+
+## 动画的调用
+```css
+.box
+{
+    animation-name: am;
+}
+```
+动画能在多个元素中调用，也就就是说 `@keyframes` 类似一个方法可以复用。
+
+## 动画的持续时间
+```css
+.box
+{
+    animation-duration: 1s;
+}
+```
+规定动画的持续时间
+
+## 动画的方式
+```css
+.box
+{
+    animation-timing-function: 1s;
+}
+```
+规定过渡效果的速度曲率
+
+<img src='/images/CSS/timing.png' />
+
+与过渡一样，除上图规定的曲率还能自定义曲率：
+
+```css
+.box
+{
+    animation-timing-function: cubic-bezier(0.25, 0.1, 0.46, 0.22);
+}
+```
+贝塞尔曲线，自定义曲率。
+
+## 动画的延迟
+```css
+.box
+{
+    animation-delay: 1s;
+}
+```
+延迟动画的执行时间
+
+## 动画的播放次数
+```css
+.box
+{
+    animation-iteration-count: infinite;
+}
+```
+属性：`number` 次数 | `infinite` 无限
+
+## 播放方向
+```css
+.box
+{
+    animation-direction: alternate;
+}
+```
+属性：`normal` 默认 | `reverse` 反 | `alternate` 正反轮流播放
+{% note info %}
+如果 `animation-direction` 值是 `alternate`，则动画会在奇数次数正常播放，而在偶数次数向后播放。（利用好它能够制作出无缝动画）
+{% endnote %}
+
+## 播放状态
+```css
+.box
+{
+    animation-play-state: paused;
+}
+```
+属性：`running` 播放 | `paused` 暂停
+{% note info %}
+这个属性一般是 js 来进行操控的，很少直接用到。
+{% endnote %}
+
+## 动画完成
+```css
+.box
+{
+    animation-fill-mode: backwards;
+}
+```
+属性：`none` 默认 | `forwards` 动画结束之后继续应用最后的关键帧位置 | `backwards` 会在向元素应用动画样式时迅速应用动画的初始帧 | `both` 元素动画同时具有forwards和backwards效果
+{% note info %}
+这个属性很强大，比如用于制作无缝轮播。
+{% endnote %}
+
+## 简写
+animation: duration delay name timing-function iteration-count direction fill-mode
+
+# 媒体查询
+
+## 内部使用
+```css
+@media (width: 375px) and (orientation : portrait)
+{
+    .box
+    {
+        background: green;
+    }
+}
+```
+此例中，iPhone6/7 在竖屏的状态下上了原谅色。
+
+```css
+@import url("style.css") (width: 375px);
+```
+引入的 css 同样能够使用响应式，需要注意的是必须放在首行，否则无法生效。
+
+## 外部引入
+```html
+<link rel="stylesheet" href="style.css" media="(width: 375px) and (orientation : portrait)">
+```
+
+## 常见的属性
+| 属性 | 说明 |
+| --- | --- |
+| devicle-width, device-height | 屏幕宽高 |
+| width, height | 渲染窗口宽高 |
+| min-width, min-height | 渲染窗口最小宽高 |
+| max-width, max-height | 渲染窗口最大宽高 |
+| orientation | 设备方向(landscape 横屏、portrait 竖屏) |
+| resolution | 设备分辨率 |
