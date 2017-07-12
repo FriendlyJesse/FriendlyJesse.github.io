@@ -57,7 +57,7 @@ div + p
 ```
 ```html
 <div></div>
-<p></p>  //此元素被光荣选中
+<p></p>  /*此元素被光荣选中*/
 <p></p>
 ```
 选择下面相邻的兄弟元素
@@ -70,8 +70,8 @@ div ~ p
 ```
 ```html
 <div></div>
-<p></p>  //此元素被光荣选中
-<p></p>  //此元素被光荣选中
+<p></p>  /*此元素被光荣选中*/
+<p></p>  /*此元素被光荣选中*/
 ```
 选择下面所有的兄弟元素
 
@@ -145,7 +145,7 @@ h1:nth-child(1)
 ```html
 <div class="wrap">
     <p>1</p>
-    <h1>2</h1>  //没有被选中
+    <h1>2</h1>  /*没有被选中*/
 </div>
 ```
 `:nth-child(1)` 选中的是 `h1` 的父级 `.wrap` 中的第一个元素也就是 `p` ，但是由于它不是 `h1` 所以没有被选取。
@@ -159,7 +159,7 @@ h1:nth-of-type(1)
 ```html
 <div class="wrap">
     <p>1</p>
-    <h1>2</h1>  //被选中了
+    <h1>2</h1>  /*被选中了*/
 </div>
 ```
 `:nth-of-type(1)` 选中的是 `h1` 的父级 `.wrap` 中的第一个 `h1` 元素，所以 `h1` 被选取了。
@@ -173,7 +173,7 @@ h1:nth-of-type(1)
 ```
 ```html
 <div class="wrap">
-    <div></div> //被选中了
+    <div></div> /*被选中了*/
     <p></p>
 </div>
 ```
@@ -187,9 +187,9 @@ h1:nth-of-type(1)
 ```
 ```html
 <div class="wrap">
-    <p>1</p>  //没有被选中
+    <p>1</p>  /*没有被选中*/
 </div>
-<p>2</p>  //被选中了
+<p>2</p>  /*被选中了*/
 ```
 选取 `.wrap` 相邻的除 `div` 外的元素
 
@@ -202,7 +202,7 @@ p:not(.red)
 ```html
 <div class="wrap">
     <p class="red">1</p>
-    <p>2</p>  //被选中了
+    <p>2</p>  /*被选中了*/
 </div>
 ```
 选取 `p` 标签没有被 `.red` 选择的元素
@@ -260,8 +260,8 @@ div::after
 
 ### 伪元素内容
 ```css
-content: ""  //插入文字
-content: url("")  //插入图片
+content: ""  /*插入文字*/
+content: url("")  /*插入图片*/
 ```
 {% note info %} 
 伪元素如果没有 `content` 那么它会消失，伪元素在 CSS3 中由一个点变成两个点用于区分伪元素与伪类的区别。伪元素是一个超级强大的黑科技，利用好它可以做到很多事情，例如：完美清除浮动、文字特效等。
@@ -1033,7 +1033,7 @@ img
 {% endnote %}
 
 ### 矩阵
-```css
+```text
 transform: matrix(a, b, c, d, e, f)  //标准下，默认属性是(1 , 0, 0, 1, 0, 0)
 
 filter: progid:DXImageTransform.Microsoft.Matrix(M11 = a, M12 = c, M21 = b, M22 = d, SizingMethod='auto expand')  //ie下，默认属性是( 1 , 0 , 0 , 1 )
@@ -1176,3 +1176,85 @@ div
 }
 ```
 与 2D 相比增加了一个 z 轴（这里一般可以理解为厚度）
+
+# 过渡
+
+## 过渡的属性
+```css
+.box
+{
+    transition-property: transform;
+}
+```
+能同时指定多个样式依次执行中间用 `,` 隔开，不指定属性名时该元素所以属性都有过度效果，`all` 则为所有属性可省略不写也是所有属性。
+
+## 过渡的时间
+```css
+.box
+{
+    transition-duration: 1s;
+}
+```
+指定过渡的时间，需要注意的是在 `:hover` 中使用没有移出效果，而要在元素选择时使用。
+
+## 过渡的方式
+```css
+.box
+{
+    transition-timing-function: ease;
+}
+```
+规定过渡效果的速度曲率
+
+<img src='/images/CSS/timing.png' />
+
+除上图规定的曲率还能自定义曲率：
+
+```css
+.box
+{
+    transition-timing-function: cubic-bezier(0.25, 0.1, 0.46, 0.22);
+}
+```
+贝塞尔曲线，自定义速度
+
+## 过渡的延迟
+```css
+.box
+{
+    transition-delay: 1s;
+}
+```
+延迟过渡的执行时间
+
+## 过渡的事件
+```css
+.img
+{
+    width: 10px;
+    height: 10px;
+    background: red;
+    margin: 300px auto;
+    transition: 1s;
+}
+.img:hover
+{
+    width: 100px;
+}
+```
+```html
+<div class="img"></div>
+```
+```javascript
+var img = document.getElementsByClassName('img')[0];
+img.addEventListener('transitionend', function()
+{
+    console.log(1);
+})
+```
+transition结束事件，每改变一条样式会触发一次，由于会重复触发，需要解绑事件来解决
+
+## 简写
+transition: property duration delay timing-function
+
+# 动画
