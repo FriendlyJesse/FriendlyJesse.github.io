@@ -391,7 +391,7 @@ p
 ```css
 p
 {
-    leet-spacing: 10px;
+    letter-spacing: 10px;
 }
 ```
 属性：`normal` 默认 | `length` 固定
