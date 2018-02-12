@@ -5,6 +5,9 @@
   "hexo": {
     "version": "3.3.8"
   },
+  "scripts": {
+    "dev": "hexo s --open"
+  },
   "dependencies": {
     "hexo": "^3.2.0",
     "hexo-asset-image": "https://github.com/CodeFalling/hexo-asset-image",
