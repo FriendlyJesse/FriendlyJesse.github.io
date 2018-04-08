@@ -19,12 +19,12 @@ tag:
 # 定制自己的 Photoshop
 
 ## 新建页面设置
-<img src='/images/Potoshop/ps1.png' />
+<img src='/images/photoshop/ps1.png' />
 
 说明：单位是像素，分辨率一般72，背景是透明。
 
 ## 移动工具设置
-<img src='/images/Potoshop/ps2.png' />
+<img src='/images/photoshop/ps2.png' />
 
 说明：在选择工具中勾选自动选择来选择组或者图层
 快捷键：Ctrl+鼠标点击
@@ -34,14 +34,14 @@ tag:
 2. 视图->标尺，快捷键：Ctrl+R
 3. 窗口设置
 
-<img src='/images/Potoshop/ps3.png' />
+<img src='/images/photoshop/ps3.png' />
 
 一般用到的就只有这四个版块，信息面板选项采取以下：
 
-<img src='/images/Potoshop/ps4.png' />
+<img src='/images/photoshop/ps4.png' />
 
 ## 单位与标尺设置
-<img src='/images/Potoshop/ps5.png' />
+<img src='/images/photoshop/ps5.png' />
 
 说明：将单位与标尺改为像素
 
@@ -52,10 +52,10 @@ tag:
 快捷键：V
 
 1. 选择多个图层
-<img src='/images/Potoshop/move1.png' />
+<img src='/images/photoshop/move1.png' />
 
 2. 激活对齐按钮
-<img src='/images/Potoshop/move2.png' />
+<img src='/images/photoshop/move2.png' />
 
 ## 盖印图层
 快捷键：Ctrl+Alt+E
@@ -70,7 +70,7 @@ tag:
 ## 选区
 快捷键：M
 
-<img src='/images/Potoshop/selected.png' />
+<img src='/images/photoshop/selected.png' />
 
 说明：红框中按钮一为普通选区，按钮二增加选区，按钮三减少选区，按钮四只留下交叉选区。
 
@@ -114,7 +114,7 @@ tag:
 ## 裁剪
 快捷键：C
 
-<img src='/images/Potoshop/clip.png' />
+<img src='/images/photoshop/clip.png' />
 
 说明：选择后在右上角选择是否裁剪，可以直接使用裁剪工具也能使用选区工具后再裁剪
 
@@ -157,30 +157,30 @@ tag:
 ## 渐变
 快捷键：G
 
-<img src='/images/Potoshop/gradient1.png' />
+<img src='/images/photoshop/gradient1.png' />
 
 说明：渐变样式
 
-<img src='/images/Potoshop/gradient2.png' />
+<img src='/images/photoshop/gradient2.png' />
 
 说明：按钮一线性渐变，按钮二径向渐变，按钮三角度渐变，按钮四对称渐变，按钮五菱形渐变
 
 ## 模糊
-<img src='/images/Potoshop/vague.png' />
+<img src='/images/photoshop/vague.png' />
 
 快捷键：无
 
 ## 减淡工具
 快捷键：O
 
-<img src='/images/Potoshop/dodge.png' />
+<img src='/images/photoshop/dodge.png' />
 
 说明：一般进行美白与变黑
 
 ## 钢笔工具
 快捷键：P
 
-<img src='/images/Potoshop/pen.png' />
+<img src='/images/photoshop/pen.png' />
 
 可使用Shift与Alt来添加或删除描点。
 
@@ -223,20 +223,20 @@ tag:
 
 ## 传统切图
 **切片：**
-<img src='/images/Potoshop/section1.png' />
-<img src='/images/Potoshop/section2.png' />
+<img src='/images/photoshop/section1.png' />
+<img src='/images/photoshop/section2.png' />
 
 说明：使用切片工具与切片选择工具（或者选中）配合参考线进行切图，鼠标右键可删除切片，也可以在裁剪后使用参考线后使用基于参考线的切片慢慢切。
 
 **导出：**
-<img src='/images/Potoshop/section3.png' />
+<img src='/images/photoshop/section3.png' />
 
 说明：导出存储为web所用格式
 
 ## 精确切图
 
 ### 全部导出
-<img src='/images/Potoshop/section4.png' />
+<img src='/images/photoshop/section4.png' />
 
 说明：快速将图层一次性导出。
 
@@ -251,17 +251,17 @@ tag:
 说明：可以复制出图像的css样式，但是必须精简，原来的样式比较冗余
 
 ## 切白色背景为透明图片
-<img src='/images/Potoshop/transparent1.png' />
-<img src='/images/Potoshop/transparent2.png' />
+<img src='/images/photoshop/transparent1.png' />
+<img src='/images/photoshop/transparent2.png' />
 
 ## 图片大小设置
-<img src='/images/Potoshop/img_size.png' />
+<img src='/images/photoshop/img_size.png' />
 
 说明：锁链决定是否约束比例。
 
 ## 圆角角度确定
 选择->修改->平滑
 
-<img src='/images/Potoshop/fillet.png' />
+<img src='/images/photoshop/fillet.png' />
 
 说明：设置平滑来确定圆角的角度。

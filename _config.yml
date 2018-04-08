@@ -69,5 +69,5 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/FriendlyJesse/FriendlyJesse.github.io
+  repo: git@github.com:FriendlyJesse/FriendlyJesse.github.io.git
   branch: master

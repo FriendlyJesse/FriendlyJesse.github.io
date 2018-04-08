@@ -63,8 +63,8 @@ tag:
 # 语义标签
 
 ## 具象图
-<img src='/images/HTML/lay1.png' />
-<img src='/images/HTML/lay2.png' />
+<img src='/images/html/lay1.png' />
+<img src='/images/html/lay2.png' />
 
 ## 常用标签
 | H5新增标签        | 语义           |
@@ -216,7 +216,7 @@ checked  //选中，radio与checkbox才有这个状态
 
 ### 选项列表
 
-<img src='/images/HTML/list.png' />
+<img src='/images/html/list.png' />
 
 ```html
 <input type="text" list="valList">
@@ -271,7 +271,7 @@ oText.oninvalid = function ()
 | customError  | 不符合自定义规则 |
 
 #### 自定义规则
-<img src='/images/HTML/mingan.png' />
+<img src='/images/html/mingan.png' />
 
 ```html
 <form>

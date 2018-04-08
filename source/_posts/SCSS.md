@@ -11,7 +11,7 @@ tag:
 # SCSS 环境
 
 ## ruby 安装
-<img src='/images/SCSS/ruby.png' />
+<img src='/images/scss/ruby.png' />
 
 安装步骤：
 1. 下载 `Ruby` 运行库
@@ -34,7 +34,7 @@ gem install <这里把Sass安装包拖进来>
 ```ruby
 sass -v
 ```
-<img src='/images/SCSS/install.png' />
+<img src='/images/scss/install.png' />
 出现以上即为成功
 
 其余命令：
@@ -48,7 +48,7 @@ sass -v
 # SCSS 编译
 
 ## webstorm
-<img src='/images/SCSS/webstorm.png' />
+<img src='/images/scss/webstorm.png' />
 
 {% note info %}
 注意：`webstorm` 编译 `scss` 不能使用中文目录。
@@ -61,7 +61,7 @@ sass -v
 3. 书写 scss 后 ctrl+b 编译
 
 ## HBuilder
-<img src='/images/SCSS/hb.png' />
+<img src='/images/scss/hb.png' />
 
 步骤：
 1. 工具 -> 与编译器设置

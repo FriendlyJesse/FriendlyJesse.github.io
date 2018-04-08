@@ -545,7 +545,7 @@ p
 属性：`normal` 默认 | `break-all` 允许在单词内换行 | `keep-all` 只能在半角空格或连字符处换行
 
 ### `word-wrap` 与 `word-break` 之间的区别
-<img src='/images/CSS/word.png' />
+<img src='/images/css/word.png' />
 `word-break:break-all` 所有都会换行了，而 `word-wrap:break-word` 则只有长单词换行。
 
 # 列表
@@ -745,7 +745,7 @@ caption
 backgruond: color image repeat attachment position / size
 
 # 盒模型
-<img src="/images/CSS/box.png" />
+<img src="/images/css/box.png" />
 
 ## 宽 & 高
 ```css
@@ -1301,7 +1301,7 @@ div
 ```
 规定过渡效果的速度曲率
 
-<img src='/images/CSS/timing.png' />
+<img src='/images/css/timing.png' />
 
 除上图规定的曲率还能自定义曲率：
 
@@ -1401,7 +1401,7 @@ transition: property duration delay timing-function
 ```
 规定过渡效果的速度曲率
 
-<img src='/images/CSS/timing.png' />
+<img src='/images/css/timing.png' />
 
 与过渡一样，除上图规定的曲率还能自定义曲率：
 

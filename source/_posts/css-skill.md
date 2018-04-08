@@ -149,7 +149,7 @@ div
 {% endnote %}
 
 # 线中间的标题
-<img src='/images/CSS-黑科技/title.png' />
+<img src='/images/css-skill/title.png' />
 
 ```html
 <h5>

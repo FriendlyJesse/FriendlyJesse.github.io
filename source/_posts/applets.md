@@ -14,7 +14,7 @@ tag:
 
 # 目录结构
 
-<img src='/images/小程序/Applet.png' />
+<img src='/images/applets/Applet.png' />
 
 {% note info %}
 小程序的开发工具在创建项目时会自动生成以上结构，创建时必须是目录不存在才行。
