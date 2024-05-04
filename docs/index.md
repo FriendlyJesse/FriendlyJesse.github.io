@@ -12,7 +12,7 @@ hero:
       link: /技术方案/单点登录
     - theme: alt
       text: 技术栈
-      link: /api-examples
+      link: /技术栈/NextJS
 
 features:
   - title: Feature A

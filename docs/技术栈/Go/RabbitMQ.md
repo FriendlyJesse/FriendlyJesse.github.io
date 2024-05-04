@@ -1,3 +1,7 @@
+---
+order: 6
+---
+
 # RabbitMQ
 ## MQ（Message queue）
 ### 什么是 RabbitMQ

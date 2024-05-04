@@ -1,3 +1,7 @@
+---
+order: 3
+---
+
 # Casbin
 Casbin是一个强大且高效的开源访问控制库，支持各种[访问控制模型](https://en.wikipedia.org/wiki/Access_control#Access_control_models)，用于在全局范围内执行授权。
 ## Casbin 是怎么运作的？
