@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Jesse's Blog"
-  text: "Jesse's Blog"
-  tagline: My great project tagline
+  text: "My knowledge base"
+  tagline: Let me see see
   actions:
     - theme: brand
       text: Markdown Examples
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

@@ -4,6 +4,10 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "Jesse's blog",
   description: "Jesse's blog",
+  head: [
+    ['meta', { name: 'referrer', content: 'no-referrer' }]
+  ],
+  srcDir: 'docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -18,11 +22,21 @@ export default defineConfig({
           { text: 'Markdown Examples', link: '/markdown-examples' },
           { text: 'Runtime API Examples', link: '/api-examples' }
         ]
+      },
+      {
+        text: 'Go',
+        items: [
+          { text: 'Golang', link: '/Go/Golang' },
+        ]
       }
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+      { icon: 'github', link: 'https://github.com/FriendlyJesse' }
+    ],
+
+    outline: {
+      level: 'deep'
+    }
   }
 })
