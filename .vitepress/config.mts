@@ -7,6 +7,7 @@ export default defineConfig({
   head: [
     ['meta', { name: 'referrer', content: 'no-referrer' }]
   ],
+  base: '/Blog/',
   srcDir: 'docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
