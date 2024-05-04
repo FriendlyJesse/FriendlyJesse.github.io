@@ -40,7 +40,8 @@ features:
 .VPImage {
   border-radius: 50%;
 }
-.VPLink {
+
+.VPFeatures .VPLink {
   @apply cursor-pointer border border-transparent hover:border-indigo-300;
 }
 

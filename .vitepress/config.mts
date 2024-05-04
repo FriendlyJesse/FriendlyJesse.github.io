@@ -32,8 +32,8 @@ export default defineConfig({
     },
 
     footer: {
-      message: '基于 MIT 许可发布',
-      copyright: `版权所有 © 2019-${new Date().getFullYear()} 简清`
+      message: '备案信息',
+      copyright: `版权所有 © 2017-${new Date().getFullYear()} 简清`
     },
 
     docFooter: {
@@ -53,6 +53,12 @@ export default defineConfig({
         timeStyle: 'medium'
       }
     },
+
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式'
     
   }
 })
