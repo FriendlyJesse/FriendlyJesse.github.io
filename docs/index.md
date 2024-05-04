@@ -18,7 +18,8 @@ hero:
     alt: Jesse
 
 features:
-  - title: Feature A
+  - icon: 📝
+    title: Feature A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature B
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -27,7 +28,7 @@ features:
 ---
 
 
-<style>
+<style lang="scss">
 :root {
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #bd34fe 30%, #41d1ff);
@@ -39,6 +40,10 @@ features:
 .VPImage {
   border-radius: 50%;
 }
+.VPLink {
+  @apply cursor-pointer border border-transparent hover:border-indigo-300;
+}
+
 @media (min-width: 640px) {
   :root {
     --vp-home-hero-image-filter: blur(56px);
