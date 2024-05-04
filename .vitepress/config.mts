@@ -24,7 +24,7 @@ export default defineConfig({
           { text: '高并发', link: '/技术方案/高并发' },
           { text: '封装Axios与制定Service层', link: '/技术方案/封装Axios与制定Service层' },
           { text: '前端动画展示方案', link: '/技术方案/前端动画展示方案' },
-          { text: 'Antd InputNumber 强制两位小数与千分位', link: '/技术方案/Antd InputNumber 强制两位小数与千分位' },
+          { text: 'Antd InputNumber 强制两位小数与千分位', link: '/技术方案/AntdInputNumber-强制两位小数与千分位' },
         ]
       },
       {
