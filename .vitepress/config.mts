@@ -6,6 +6,7 @@ export default defineConfig({
   title: "Jesse's blog",
   description: "Jesse's blog",
   head: [
+    ['link', { rel: 'icon', href: '/logo.jpg' }],
     ['meta', { name: 'referrer', content: 'no-referrer' }]
   ],
   srcDir: 'docs',
