@@ -6,7 +6,7 @@
   precision={2}
 />
 ```
-但是我们的需求是需要存在千分位。好吧，[Link]()那么我们加上`formatter`也就可以了。但是我们看文档，`precision`会在配置`formatter`时失效！
+但是我们的需求是需要存在千分位。好吧，那么我们加上`formatter`也就可以了。但是我们看文档，`precision`会在配置`formatter`时失效！
 ![image.png](https://cdn.nlark.com/yuque/0/2023/png/21870146/1695094934265-625ed9cc-61e0-4903-8a85-e73e4b12d6bf.png#averageHue=%23f4f4f4&clientId=u1df987ec-bc52-4&from=paste&height=45&id=u19c11741&originHeight=45&originWidth=621&originalType=binary&ratio=1&rotation=0&showTitle=false&size=6711&status=done&style=none&taskId=u2970e500-29ed-45cd-a61b-89d57d02b98&title=&width=621)
 ## 设置千分位和两位小数（一般没有要求强制两位小数这一步就可以了）
 好吧，大不了我们在`formatter`时手写一下。
