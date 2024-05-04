@@ -9,19 +9,21 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /技术方案/单点登录
+      link: /Coder/技术方案/单点登录
     - theme: alt
       text: 技术栈
-      link: /技术栈/NextJS
+      link: /Coder/技术栈/NextJS
   image:
     src: /logo.jpg
     alt: Jesse
 
 features:
-  - icon: 📝
-    title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - icon: 📝
+  - icon:
+      src: /icons/icon_docker.svg
+    title: Docker
+    details: 打造一致的运行环境，Docker让部署应用变得轻松无比。
+  - icon:
+      src: /icons/go-logo-blue.svg
     title: Feature A
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - icon: 📝
@@ -55,6 +57,9 @@ features:
 
 .VPFeatures .VPLink {
   @apply cursor-pointer border border-transparent hover:border-indigo-300;
+  .VPImage {
+    min-height: 48px;
+  }
 }
 
 @media (min-width: 640px) {

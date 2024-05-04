@@ -14,14 +14,26 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: { src: '/logo.jpg', width: 24, height: 24 },
     nav: [
-      { text: 'Home', link: '/' },
+      { text: '主页', link: '/' },
+      { text: '旅行', link: '/Travel/庐山之旅' },
     ],
 
-    sidebar: generateSidebar({
-      documentRootPath: '/docs',
-      collapsed: false,
-      sortMenusByFrontmatterOrder: true
-    }),
+    sidebar: generateSidebar([
+      {
+        documentRootPath: 'docs',
+        scanStartPath: 'Coder',
+        resolvePath: '/Coder/',
+        collapsed: false,
+        sortMenusByFrontmatterOrder: true
+      },
+      {
+        documentRootPath: 'docs',
+        scanStartPath: 'Travel',
+        resolvePath: '/Travel/',
+        collapsed: false,
+        sortMenusByFrontmatterOrder: true
+      }
+    ]),
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/FriendlyJesse' }
