@@ -3,15 +3,15 @@
 layout: home
 
 hero:
-  name: "Jesse's Blog"
-  text: "My knowledge base"
-  tagline: Let me see see
+  name: "我是简清"
+  text: "一名前端技术爱好者"
+  tagline: 展示技术栈与技术方案
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 开始阅读
+      link: /技术方案/单点登录
     - theme: alt
-      text: API Examples
+      text: 技术栈
       link: /api-examples
 
 features:
