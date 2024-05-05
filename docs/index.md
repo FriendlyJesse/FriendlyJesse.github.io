@@ -31,7 +31,7 @@ features:
     details: 用于构建 Web 和原生交互界面的库
   - icon:
       src: /icons/go-logo-blue.svg
-    link: /Coder/技术栈/Go
+    link: /Coder/技术栈/Go/Golang
     title: Go
     details: 用Go构建简单、安全、可扩展的系统
   - icon:
