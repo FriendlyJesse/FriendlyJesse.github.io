@@ -34,6 +34,13 @@ export default defineConfig({
         resolvePath: '/Travel/',
         collapsed: false,
         sortMenusByFrontmatterOrder: true
+      },
+      {
+        documentRootPath: 'docs',
+        scanStartPath: 'Cookbook',
+        resolvePath: '/Cookbook/',
+        collapsed: false,
+        sortMenusByFrontmatterOrder: true
       }
     ]),
 
