@@ -7,6 +7,7 @@ export default defineConfig({
   description: "Jesse's blog",
   head: [
     ['link', { rel: 'icon', href: '/logo.jpg' }],
+    ['link', { rel: 'stylesheet', href: '//unpkg.com/element-plus/dist/index.css' }],
     ['meta', { name: 'referrer', content: 'no-referrer' }]
   ],
   srcDir: 'docs',
@@ -16,6 +17,7 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '旅行', link: '/Travel/庐山之旅' },
+      { text: '菜谱', link: '/Cookbook/葱烧鸡腿' },
     ],
 
     sidebar: generateSidebar([
