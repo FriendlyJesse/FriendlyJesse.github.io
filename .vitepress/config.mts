@@ -18,6 +18,7 @@ export default defineConfig({
       { text: '主页', link: '/' },
       { text: '旅行', link: '/Travel/庐山之旅' },
       { text: '菜谱', link: '/Cookbook/葱烧鸡腿' },
+      { text: '💞恋爱进行', link: 'https://friendlyjesse.github.io/love' },
     ],
 
     sidebar: generateSidebar([
