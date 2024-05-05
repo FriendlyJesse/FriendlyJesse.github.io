@@ -62,7 +62,7 @@ features:
   --vp-home-hero-image-filter: blur(44px);
 }
 
-.VPImage {
+.VPHero .VPImage {
   border-radius: 50%;
 }
 
