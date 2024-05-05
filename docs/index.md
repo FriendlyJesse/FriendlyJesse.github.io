@@ -18,27 +18,38 @@ hero:
     alt: Jesse
 
 features:
+  
+  - icon:
+      src: /icons/icon_vue.svg
+    link: /Coder/技术栈/Vue/vue
+    title: Vue
+    details: 渐进式 JavaScript 框架
+  - icon:
+      src: /icons/icon_react.svg
+    link: /Coder/技术栈/React/NextJS
+    title: React/React Native
+    details: 用于构建 Web 和原生交互界面的库
+  - icon:
+      src: /icons/go-logo-blue.svg
+    link: /Coder/技术栈/Go
+    title: Go
+    details: 用Go构建简单、安全、可扩展的系统
+  - icon:
+      src: /icons/icon_node.svg
+    link: /Coder/技术栈/Node/NodeJS
+    title: NodeJS
+    details: JS的后台运行时环境
+  - icon:
+      src: /icons/icon_linux.svg
+    link: /Coder/DevOps/Linux
+    title: Linux
+    details: 最终在此工作
   - icon:
       src: /icons/icon_docker.svg
     link: /Coder/DevOps/Docker
     title: Docker
-    details: 打造一致的运行环境，Docker让部署应用变得轻松无比。
-  - icon:
-      src: /icons/go-logo-blue.svg
-    title: Go
-    link: /Coder/
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - icon: 📝
-    title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - icon: 📝
-    title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - icon: 📝
-    title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: 打造一致的运行环境，Docker让部署应用变得轻松无比
+  
 ---
 
 
