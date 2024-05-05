@@ -12,7 +12,7 @@ hero:
       link: /Coder/技术方案/单点登录
     - theme: alt
       text: 技术栈
-      link: /Coder/技术栈/NextJS
+      link: /Coder/技术栈/React/NextJS
   image:
     src: /logo.jpg
     alt: Jesse
