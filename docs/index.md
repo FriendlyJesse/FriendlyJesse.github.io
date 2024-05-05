@@ -20,11 +20,13 @@ hero:
 features:
   - icon:
       src: /icons/icon_docker.svg
+    link: /Coder/DevOps/Docker
     title: Docker
     details: 打造一致的运行环境，Docker让部署应用变得轻松无比。
   - icon:
       src: /icons/go-logo-blue.svg
-    title: Feature A
+    title: Go
+    link: /Coder/
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - icon: 📝
     title: Feature A
@@ -54,7 +56,6 @@ features:
 }
 
 .VPFeatures .VPLink {
-  @apply cursor-pointer border border-transparent hover:border-indigo-300;
   .VPImage {
     min-height: 48px;
   }
